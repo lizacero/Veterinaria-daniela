@@ -1,0 +1,20 @@
+[
+    {
+        "nombre": "hola",
+        "apellido": "b",
+        "cedula": "c",
+        "especialidad": "d",
+        "consultorio": "e",
+        "correo": "f",
+        "paciente": "g"
+    },
+    {
+        "nombre": "h",
+        "apellido": "i",
+        "cedula": "j",
+        "especialidad": "k",
+        "consultorio": "l",
+        "correo": "m",
+        "paciente": "n"
+    }
+]
