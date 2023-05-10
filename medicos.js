@@ -1,31 +1,69 @@
 let tablaMedicos = document.getElementById("tabla-medicos");
 let cuerpoTabla = tablaMedicos.querySelector("tbody");
 
-fetch('datos_medicos.json')
-    .then(Response => Response.json())
+// Obteniendo las cookies
+const medicosCookie = JSON.parse(obtenerCookie("medicos"))
 
-    .then(medicos => {
-        for (let i = 0; i < medicos.length; i++) {
-            let medico = medicos[i]
+for (i = 0; i < medicosCookie.length; i++) {
+    let medico = medicosCookie[i]
 
-            let fila = cuerpoTabla.insertRow();
-            let celdaNombre = fila.insertCell();
-            let celdaApellido = fila.insertCell();
-            let celdaCedula = fila.insertCell();
-            let celdaEspecialidad = fila.insertCell();
-            let celdaConsultorio = fila.insertCell();
-            let celdaCorreo = fila.insertCell();
-            let celdaPaciente = fila.insertCell();
+    let fila = cuerpoTabla.insertRow();
+    let celdaNombre = fila.insertCell();
+    let celdaApellido = fila.insertCell();
+    let celdaCedula = fila.insertCell();
+    let celdaEspecialidad = fila.insertCell();
+    let celdaConsultorio = fila.insertCell();
+    let celdaTelefono = fila.insertCell()
+    let celdaCorreo = fila.insertCell();
+    let celdaPaciente = fila.insertCell();
 
-            celdaNombre.textContent = medico.nombre;
-            celdaApellido.textContent = medico.apellido;
-            celdaCedula.textContent = medico.cedula;
-            celdaEspecialidad.textContent = medico.especialidad;
-            celdaConsultorio.textContent = medico.consultorio;
-            celdaCorreo.textContent = medico.correo;
-            celdaPaciente.textContent = medico.paciente;
+    celdaNombre.textContent = medico.nombre;
+    celdaApellido.textContent = medico.apellido;
+    celdaCedula.textContent = medico.cedula;
+    celdaEspecialidad.textContent = medico.especialidad;
+    celdaConsultorio.textContent = medico.consultorio;
+    celdaTelefono.textContent = medico.telefono;
+    celdaCorreo.textContent = medico.correo;
+    celdaPaciente.textContent = medico.paciente;
+}
+
+function obtenerCookie(nombre) {
+    const cookies = document.cookie.split("; ") //split busca cualquier tipo de texto
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].split("=");
+        if (cookie[0] === nombre) {
+            return decodeURIComponent(cookie[1]);
         }
-    })
+    }
+    return "";
+}
+
+// //--------------------------------------------JSON-------------------------------
+// fetch('datos_medicos.json')
+//     .then(Response => Response.json())
+
+//     .then(medicos => {
+//         for (let i = 0; i < medicos.length; i++) {
+//             let medico = medicos[i]
+
+//             let fila = cuerpoTabla.insertRow();
+//             let celdaNombre = fila.insertCell();
+//             let celdaApellido = fila.insertCell();
+//             let celdaCedula = fila.insertCell();
+//             let celdaEspecialidad = fila.insertCell();
+//             let celdaConsultorio = fila.insertCell();
+//             let celdaCorreo = fila.insertCell();
+//             let celdaPaciente = fila.insertCell();
+
+//             celdaNombre.textContent = medico.nombre;
+//             celdaApellido.textContent = medico.apellido;
+//             celdaCedula.textContent = medico.cedula;
+//             celdaEspecialidad.textContent = medico.especialidad;
+//             celdaConsultorio.textContent = medico.consultorio;
+//             celdaCorreo.textContent = medico.correo;
+//             celdaPaciente.textContent = medico.paciente;
+//         }
+//     })
 
 // // Arreglos
 // let nombre = ["a"]

@@ -10,6 +10,12 @@ formularioMascotas.addEventListener("submit", (event) => {
         especialidad: document.getElementById("especialidad").value
     }
     guardarCookies(datosMascota)
+    const confirmacion =confirm("¿Desea ver los datos?")
+    if(confirmacion){
+        window.location.href = "mascotas.html"
+    }else{
+        formularioMascotas.reset()
+    }
     // const jsonDatos = JSON.stringify(datosMascota)
     // console.log(jsonDatos)
     // document.cookie = `mascotas = ${encodeURIComponent(jsonDatos)}`;
